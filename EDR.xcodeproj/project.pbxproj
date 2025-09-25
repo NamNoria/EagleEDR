@@ -1,0 +1,1030 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B5D103F2E8576F10032B220 /* EDRFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5D10392E8576F10032B220 /* EDRFramework.framework */; };
+		6B5D10402E8576F10032B220 /* EDRFramework.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 6B5D10392E8576F10032B220 /* EDRFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B5D13D92E8579370032B220 /* libEndpointSecurity.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDE04D02E4B76DA004E1B71 /* libEndpointSecurity.tbd */; };
+		6B5D13DA2E8579470032B220 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDE04CC2E4B76CB004E1B71 /* Security.framework */; };
+		6B5D13DB2E8579560032B220 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDE04CA2E4B76C1004E1B71 /* IOKit.framework */; };
+		6B5D13DF2E8579730032B220 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5D13DE2E8579730032B220 /* Cocoa.framework */; };
+		6B5D164D2E8582070032B220 /* NetworkStatistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE205EC2E4E0E8C00B824D5 /* NetworkStatistics.framework */; };
+		6B5D164E2E8582070032B220 /* NetworkStatistics.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 6BE205EC2E4E0E8C00B824D5 /* NetworkStatistics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B5D16582E8583120032B220 /* libbsm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDE04CE2E4B76D2004E1B71 /* libbsm.tbd */; };
+		6BDE04CF2E4B76D2004E1B71 /* libbsm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDE04CE2E4B76D2004E1B71 /* libbsm.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6B5D103D2E8576F10032B220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BDE04512E4B74B8004E1B71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B5D10382E8576F10032B220;
+			remoteInfo = EDRFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6B5D13D12E8577E00032B220 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6B5D164E2E8582070032B220 /* NetworkStatistics.framework in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BE206772E57157400B824D5 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6B5D10402E8576F10032B220 /* EDRFramework.framework in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6B372A3C2E7C24920047CC23 /* ProtocolBuffers_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ProtocolBuffers_iOS.xcodeproj; sourceTree = "<group>"; };
+		6B372A3D2E7C24920047CC23 /* ProtocolBuffers_OSX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ProtocolBuffers_OSX.xcodeproj; sourceTree = "<group>"; };
+		6B372A3E2E7C24920047CC23 /* ProtocolBuffers_tvOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ProtocolBuffers_tvOS.xcodeproj; sourceTree = "<group>"; };
+		6B37D4252E7C58CA0047CC23 /* ProtocolBuffers_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ProtocolBuffers_iOS.xcodeproj; sourceTree = "<group>"; };
+		6B37D4262E7C58CA0047CC23 /* ProtocolBuffers_OSX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ProtocolBuffers_OSX.xcodeproj; sourceTree = "<group>"; };
+		6B37D4272E7C58CA0047CC23 /* ProtocolBuffers_tvOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ProtocolBuffers_tvOS.xcodeproj; sourceTree = "<group>"; };
+		6B5D10392E8576F10032B220 /* EDRFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EDRFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B5D13D82E8578EC0032B220 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../../../../System/Library/PrivateFrameworks/NetworkStatistics.framework/Versions/A/Resources; sourceTree = "<group>"; };
+		6B5D13DC2E8579610032B220 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		6B5D13DE2E8579730032B220 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6B65F3C52E62DEE600B3A443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6B9E20D02E7303A200BF75BF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		6BC9D8E42E7722F0006CF287 /* librule_engine_lib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = librule_engine_lib.dylib; sourceTree = "<group>"; };
+		6BDE04592E4B74B8004E1B71 /* EDR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EDR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BDE04CA2E4B76C1004E1B71 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		6BDE04CC2E4B76CB004E1B71 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6BDE04CE2E4B76D2004E1B71 /* libbsm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbsm.tbd; path = usr/lib/libbsm.tbd; sourceTree = SDKROOT; };
+		6BDE04D02E4B76DA004E1B71 /* libEndpointSecurity.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libEndpointSecurity.tbd; path = usr/lib/libEndpointSecurity.tbd; sourceTree = SDKROOT; };
+		6BE205E72E4E0B3100B824D5 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		6BE205EC2E4E0E8C00B824D5 /* NetworkStatistics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkStatistics.framework; path = ../../../../System/Library/PrivateFrameworks/NetworkStatistics.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6B5D10442E8576F10032B220 /* Exceptions for "EDRFramework" folder in "EDRFramework" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				3rd/cJSON.h,
+				"3rd/include/spdlog/async_logger-inl.h",
+				3rd/include/spdlog/async_logger.h,
+				3rd/include/spdlog/async.h,
+				3rd/include/spdlog/cfg/argv.h,
+				3rd/include/spdlog/cfg/env.h,
+				"3rd/include/spdlog/cfg/helpers-inl.h",
+				3rd/include/spdlog/cfg/helpers.h,
+				"3rd/include/spdlog/common-inl.h",
+				3rd/include/spdlog/common.h,
+				"3rd/include/spdlog/details/backtracer-inl.h",
+				3rd/include/spdlog/details/backtracer.h,
+				3rd/include/spdlog/details/circular_q.h,
+				3rd/include/spdlog/details/console_globals.h,
+				"3rd/include/spdlog/details/file_helper-inl.h",
+				3rd/include/spdlog/details/file_helper.h,
+				3rd/include/spdlog/details/fmt_helper.h,
+				"3rd/include/spdlog/details/log_msg_buffer-inl.h",
+				3rd/include/spdlog/details/log_msg_buffer.h,
+				"3rd/include/spdlog/details/log_msg-inl.h",
+				3rd/include/spdlog/details/log_msg.h,
+				3rd/include/spdlog/details/mpmc_blocking_q.h,
+				3rd/include/spdlog/details/null_mutex.h,
+				"3rd/include/spdlog/details/os-inl.h",
+				3rd/include/spdlog/details/os.h,
+				"3rd/include/spdlog/details/periodic_worker-inl.h",
+				3rd/include/spdlog/details/periodic_worker.h,
+				"3rd/include/spdlog/details/registry-inl.h",
+				3rd/include/spdlog/details/registry.h,
+				3rd/include/spdlog/details/synchronous_factory.h,
+				"3rd/include/spdlog/details/tcp_client-windows.h",
+				3rd/include/spdlog/details/tcp_client.h,
+				"3rd/include/spdlog/details/thread_pool-inl.h",
+				3rd/include/spdlog/details/thread_pool.h,
+				"3rd/include/spdlog/details/udp_client-windows.h",
+				3rd/include/spdlog/details/udp_client.h,
+				3rd/include/spdlog/details/windows_include.h,
+				3rd/include/spdlog/fmt/bin_to_hex.h,
+				3rd/include/spdlog/fmt/bundled/args.h,
+				3rd/include/spdlog/fmt/bundled/base.h,
+				3rd/include/spdlog/fmt/bundled/chrono.h,
+				3rd/include/spdlog/fmt/bundled/color.h,
+				3rd/include/spdlog/fmt/bundled/compile.h,
+				3rd/include/spdlog/fmt/bundled/core.h,
+				3rd/include/spdlog/fmt/bundled/fmt.license.rst,
+				"3rd/include/spdlog/fmt/bundled/format-inl.h",
+				3rd/include/spdlog/fmt/bundled/format.h,
+				3rd/include/spdlog/fmt/bundled/os.h,
+				3rd/include/spdlog/fmt/bundled/ostream.h,
+				3rd/include/spdlog/fmt/bundled/printf.h,
+				3rd/include/spdlog/fmt/bundled/ranges.h,
+				3rd/include/spdlog/fmt/bundled/std.h,
+				3rd/include/spdlog/fmt/bundled/xchar.h,
+				3rd/include/spdlog/fmt/chrono.h,
+				3rd/include/spdlog/fmt/compile.h,
+				3rd/include/spdlog/fmt/fmt.h,
+				3rd/include/spdlog/fmt/ostr.h,
+				3rd/include/spdlog/fmt/ranges.h,
+				3rd/include/spdlog/fmt/std.h,
+				3rd/include/spdlog/fmt/xchar.h,
+				3rd/include/spdlog/formatter.h,
+				3rd/include/spdlog/fwd.h,
+				"3rd/include/spdlog/logger-inl.h",
+				3rd/include/spdlog/logger.h,
+				3rd/include/spdlog/mdc.h,
+				"3rd/include/spdlog/pattern_formatter-inl.h",
+				3rd/include/spdlog/pattern_formatter.h,
+				3rd/include/spdlog/sinks/android_sink.h,
+				"3rd/include/spdlog/sinks/ansicolor_sink-inl.h",
+				3rd/include/spdlog/sinks/ansicolor_sink.h,
+				"3rd/include/spdlog/sinks/base_sink-inl.h",
+				3rd/include/spdlog/sinks/base_sink.h,
+				"3rd/include/spdlog/sinks/basic_file_sink-inl.h",
+				3rd/include/spdlog/sinks/basic_file_sink.h,
+				3rd/include/spdlog/sinks/callback_sink.h,
+				3rd/include/spdlog/sinks/daily_file_sink.h,
+				3rd/include/spdlog/sinks/dist_sink.h,
+				3rd/include/spdlog/sinks/dup_filter_sink.h,
+				3rd/include/spdlog/sinks/hourly_file_sink.h,
+				3rd/include/spdlog/sinks/kafka_sink.h,
+				3rd/include/spdlog/sinks/mongo_sink.h,
+				3rd/include/spdlog/sinks/msvc_sink.h,
+				3rd/include/spdlog/sinks/null_sink.h,
+				3rd/include/spdlog/sinks/ostream_sink.h,
+				3rd/include/spdlog/sinks/qt_sinks.h,
+				3rd/include/spdlog/sinks/ringbuffer_sink.h,
+				"3rd/include/spdlog/sinks/rotating_file_sink-inl.h",
+				3rd/include/spdlog/sinks/rotating_file_sink.h,
+				"3rd/include/spdlog/sinks/sink-inl.h",
+				3rd/include/spdlog/sinks/sink.h,
+				"3rd/include/spdlog/sinks/stdout_color_sinks-inl.h",
+				3rd/include/spdlog/sinks/stdout_color_sinks.h,
+				"3rd/include/spdlog/sinks/stdout_sinks-inl.h",
+				3rd/include/spdlog/sinks/stdout_sinks.h,
+				3rd/include/spdlog/sinks/syslog_sink.h,
+				3rd/include/spdlog/sinks/systemd_sink.h,
+				3rd/include/spdlog/sinks/tcp_sink.h,
+				3rd/include/spdlog/sinks/udp_sink.h,
+				3rd/include/spdlog/sinks/win_eventlog_sink.h,
+				"3rd/include/spdlog/sinks/wincolor_sink-inl.h",
+				3rd/include/spdlog/sinks/wincolor_sink.h,
+				"3rd/include/spdlog/spdlog-inl.h",
+				3rd/include/spdlog/spdlog.h,
+				3rd/include/spdlog/stopwatch.h,
+				3rd/include/spdlog/tweakme.h,
+				3rd/include/spdlog/version.h,
+				3rd/protobuf_final/include/google/protobuf/any.h,
+				3rd/protobuf_final/include/google/protobuf/any.pb.h,
+				3rd/protobuf_final/include/google/protobuf/api.pb.h,
+				3rd/protobuf_final/include/google/protobuf/arena_impl.h,
+				3rd/protobuf_final/include/google/protobuf/arena.h,
+				3rd/protobuf_final/include/google/protobuf/arenastring.h,
+				3rd/protobuf_final/include/google/protobuf/arenaz_sampler.h,
+				3rd/protobuf_final/include/google/protobuf/descriptor_database.h,
+				3rd/protobuf_final/include/google/protobuf/descriptor.h,
+				3rd/protobuf_final/include/google/protobuf/descriptor.pb.h,
+				3rd/protobuf_final/include/google/protobuf/duration.pb.h,
+				3rd/protobuf_final/include/google/protobuf/dynamic_message.h,
+				3rd/protobuf_final/include/google/protobuf/empty.pb.h,
+				3rd/protobuf_final/include/google/protobuf/endian.h,
+				3rd/protobuf_final/include/google/protobuf/explicitly_constructed.h,
+				3rd/protobuf_final/include/google/protobuf/extension_set_inl.h,
+				3rd/protobuf_final/include/google/protobuf/extension_set.h,
+				3rd/protobuf_final/include/google/protobuf/field_access_listener.h,
+				3rd/protobuf_final/include/google/protobuf/field_mask.pb.h,
+				3rd/protobuf_final/include/google/protobuf/generated_enum_reflection.h,
+				3rd/protobuf_final/include/google/protobuf/generated_enum_util.h,
+				3rd/protobuf_final/include/google/protobuf/generated_message_bases.h,
+				3rd/protobuf_final/include/google/protobuf/generated_message_reflection.h,
+				3rd/protobuf_final/include/google/protobuf/generated_message_tctable_decl.h,
+				3rd/protobuf_final/include/google/protobuf/generated_message_tctable_impl.h,
+				3rd/protobuf_final/include/google/protobuf/generated_message_util.h,
+				3rd/protobuf_final/include/google/protobuf/has_bits.h,
+				3rd/protobuf_final/include/google/protobuf/implicit_weak_message.h,
+				3rd/protobuf_final/include/google/protobuf/inlined_string_field.h,
+				3rd/protobuf_final/include/google/protobuf/io/coded_stream.h,
+				3rd/protobuf_final/include/google/protobuf/io/gzip_stream.h,
+				3rd/protobuf_final/include/google/protobuf/io/io_win32.h,
+				3rd/protobuf_final/include/google/protobuf/io/package_info.h,
+				3rd/protobuf_final/include/google/protobuf/io/printer.h,
+				3rd/protobuf_final/include/google/protobuf/io/strtod.h,
+				3rd/protobuf_final/include/google/protobuf/io/tokenizer.h,
+				3rd/protobuf_final/include/google/protobuf/io/zero_copy_stream_impl_lite.h,
+				3rd/protobuf_final/include/google/protobuf/io/zero_copy_stream_impl.h,
+				3rd/protobuf_final/include/google/protobuf/io/zero_copy_stream.h,
+				3rd/protobuf_final/include/google/protobuf/map_entry_lite.h,
+				3rd/protobuf_final/include/google/protobuf/map_entry.h,
+				3rd/protobuf_final/include/google/protobuf/map_field_inl.h,
+				3rd/protobuf_final/include/google/protobuf/map_field_lite.h,
+				3rd/protobuf_final/include/google/protobuf/map_field.h,
+				3rd/protobuf_final/include/google/protobuf/map_type_handler.h,
+				3rd/protobuf_final/include/google/protobuf/map.h,
+				3rd/protobuf_final/include/google/protobuf/message_lite.h,
+				3rd/protobuf_final/include/google/protobuf/message.h,
+				3rd/protobuf_final/include/google/protobuf/metadata_lite.h,
+				3rd/protobuf_final/include/google/protobuf/metadata.h,
+				3rd/protobuf_final/include/google/protobuf/package_info.h,
+				3rd/protobuf_final/include/google/protobuf/parse_context.h,
+				3rd/protobuf_final/include/google/protobuf/port.h,
+				3rd/protobuf_final/include/google/protobuf/reflection_internal.h,
+				3rd/protobuf_final/include/google/protobuf/reflection_ops.h,
+				3rd/protobuf_final/include/google/protobuf/reflection.h,
+				3rd/protobuf_final/include/google/protobuf/repeated_field.h,
+				3rd/protobuf_final/include/google/protobuf/repeated_ptr_field.h,
+				3rd/protobuf_final/include/google/protobuf/service.h,
+				3rd/protobuf_final/include/google/protobuf/source_context.pb.h,
+				3rd/protobuf_final/include/google/protobuf/string_member_robber.h,
+				3rd/protobuf_final/include/google/protobuf/struct.pb.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/callback.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/casts.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/common.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/hash.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/int128.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/logging.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/macros.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/map_util.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/mathutil.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/mutex.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/once.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/platform_macros.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/port.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/status_macros.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/status.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/statusor.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/stl_util.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/stringpiece.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/stringprintf.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/strutil.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/substitute.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/template_util.h,
+				3rd/protobuf_final/include/google/protobuf/stubs/time.h,
+				3rd/protobuf_final/include/google/protobuf/text_format.h,
+				3rd/protobuf_final/include/google/protobuf/timestamp.pb.h,
+				3rd/protobuf_final/include/google/protobuf/type.pb.h,
+				3rd/protobuf_final/include/google/protobuf/unknown_field_set.h,
+				3rd/protobuf_final/include/google/protobuf/util/delimited_message_util.h,
+				3rd/protobuf_final/include/google/protobuf/util/field_comparator.h,
+				3rd/protobuf_final/include/google/protobuf/util/field_mask_util.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/constants.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/datapiece.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/default_value_objectwriter.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/error_listener.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/expecting_objectwriter.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/field_mask_utility.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/json_escaping.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/json_objectwriter.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/json_stream_parser.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/location_tracker.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/mock_error_listener.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/object_location_tracker.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/object_source.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/object_writer.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/proto_writer.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/protostream_objectsource.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/protostream_objectwriter.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/structured_objectwriter.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/type_info.h,
+				3rd/protobuf_final/include/google/protobuf/util/internal/utility.h,
+				3rd/protobuf_final/include/google/protobuf/util/json_util.h,
+				3rd/protobuf_final/include/google/protobuf/util/message_differencer.h,
+				3rd/protobuf_final/include/google/protobuf/util/package_info.h,
+				3rd/protobuf_final/include/google/protobuf/util/time_util.h,
+				3rd/protobuf_final/include/google/protobuf/util/type_resolver_util.h,
+				3rd/protobuf_final/include/google/protobuf/util/type_resolver.h,
+				3rd/protobuf_final/include/google/protobuf/wire_format_lite.h,
+				3rd/protobuf_final/include/google/protobuf/wire_format.h,
+				3rd/protobuf_final/include/google/protobuf/wrappers.pb.h,
+				3rd/spdlog.tar.gz,
+				common/CodeUtils.h,
+				common/Consts.h,
+				common/edr_event.pb.h,
+				common/EsfUtils.h,
+				common/Logger.h,
+				common/macro.h,
+				common/SystemUtils.h,
+				common/YSHTTP/AFNetworking/AFCompatibilityMacros.h,
+				common/YSHTTP/AFNetworking/AFHTTPSessionManager.h,
+				common/YSHTTP/AFNetworking/AFNetworking.h,
+				common/YSHTTP/AFNetworking/AFNetworkReachabilityManager.h,
+				common/YSHTTP/AFNetworking/AFSecurityPolicy.h,
+				common/YSHTTP/AFNetworking/AFURLRequestSerialization.h,
+				common/YSHTTP/AFNetworking/AFURLResponseSerialization.h,
+				common/YSHTTP/AFNetworking/AFURLSessionManager.h,
+				common/YSHTTP/HTTPS/Log.h,
+				common/YSHTTP/HTTPS/MOLCertificate.h,
+				common/YSHTTP/HTTPS/YSHTTPGateway.h,
+				common/YSHTTP/HTTPS/YSHTTPRequest.h,
+				common/YSHTTP/HTTPS/YSHTTPResponse.h,
+				common/YSHTTP/YSHTTP.h,
+				config/filterjson.cfg,
+				CThreatDetect.h,
+				esf/CEsfClientManager.h,
+				esf/CEsfDispatcher.h,
+				lib/NetworkStatistics.framework,
+				module/CFileThreatDetect.h,
+				module/CFilterRule.h,
+				module/CNetThreatDetect.h,
+				module/CProcessThreatDetect.h,
+				module/CProcessTree.h,
+				module/CThreatEvent.h,
+				module/IESFEventObserver.h,
+				module/NetworkAudit.h,
+				module/NetworkStatistics.h,
+			);
+			publicHeaders = (
+				EDRFramework.h,
+			);
+			target = 6B5D10382E8576F10032B220 /* EDRFramework */;
+		};
+		6B5D13CE2E85778A0032B220 /* Exceptions for "EDRFramework" folder in "EDR" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				3rd/include/spdlog/fmt/bundled/fmt.license.rst,
+				3rd/spdlog.tar.gz,
+				config/filterjson.cfg,
+			);
+			target = 6BDE04582E4B74B8004E1B71 /* EDR */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		6B5D13D22E8577E00032B220 /* Exceptions for "EDRFramework" folder in "Embed Libraries" phase from "EDRFramework" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			attributesByRelativePath = {
+				3rd/librule_engine_lib.dylib = (CodeSignOnCopy, );
+				lib/JSONModel.framework = (CodeSignOnCopy, RemoveHeadersOnCopy, );
+			};
+			buildPhase = 6B5D13D12E8577E00032B220 /* Embed Libraries */;
+			membershipExceptions = (
+				3rd/librule_engine_lib.dylib,
+				lib/JSONModel.framework,
+			);
+		};
+		6B5D16562E8582CB0032B220 /* Exceptions for "EDRFramework" folder in "Compile Sources" phase from "EDRFramework" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 6B5D10352E8576F10032B220 /* Sources */;
+			membershipExceptions = (
+				3rd/protobuf_final/lib/libprotobuf.a,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6B5D103A2E8576F10032B220 /* EDRFramework */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6B5D13CE2E85778A0032B220 /* Exceptions for "EDRFramework" folder in "EDR" target */,
+				6B5D10442E8576F10032B220 /* Exceptions for "EDRFramework" folder in "EDRFramework" target */,
+				6B5D16562E8582CB0032B220 /* Exceptions for "EDRFramework" folder in "Compile Sources" phase from "EDRFramework" target */,
+				6B5D13D22E8577E00032B220 /* Exceptions for "EDRFramework" folder in "Embed Libraries" phase from "EDRFramework" target */,
+			);
+			path = EDRFramework;
+			sourceTree = "<group>";
+		};
+		6BDE045B2E4B74B8004E1B71 /* EDR */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EDR;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B5D10362E8576F10032B220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B5D13DF2E8579730032B220 /* Cocoa.framework in Frameworks */,
+				6B5D16582E8583120032B220 /* libbsm.tbd in Frameworks */,
+				6B5D13DA2E8579470032B220 /* Security.framework in Frameworks */,
+				6B5D164D2E8582070032B220 /* NetworkStatistics.framework in Frameworks */,
+				6B5D13D92E8579370032B220 /* libEndpointSecurity.tbd in Frameworks */,
+				6B5D13DB2E8579560032B220 /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BDE04562E4B74B8004E1B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B5D103F2E8576F10032B220 /* EDRFramework.framework in Frameworks */,
+				6BDE04CF2E4B76D2004E1B71 /* libbsm.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B372F582E7C24920047CC23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B372F5A2E7C24920047CC23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B372F5C2E7C24920047CC23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B37D42A2E7C58CA0047CC23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B37D42C2E7C58CA0047CC23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B37D42E2E7C58CA0047CC23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BDE04502E4B74B8004E1B71 = {
+			isa = PBXGroup;
+			children = (
+				6BDE045B2E4B74B8004E1B71 /* EDR */,
+				6B5D103A2E8576F10032B220 /* EDRFramework */,
+				6BDE04C92E4B76C1004E1B71 /* Frameworks */,
+				6BDE045A2E4B74B8004E1B71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6BDE045A2E4B74B8004E1B71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BDE04592E4B74B8004E1B71 /* EDR.app */,
+				6B5D10392E8576F10032B220 /* EDRFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BDE04C92E4B76C1004E1B71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B5D13DE2E8579730032B220 /* Cocoa.framework */,
+				6B5D13DC2E8579610032B220 /* CoreFoundation.framework */,
+				6B5D13D82E8578EC0032B220 /* Resources */,
+				6B9E20D02E7303A200BF75BF /* libsqlite3.tbd */,
+				6B65F3C52E62DEE600B3A443 /* Foundation.framework */,
+				6BE205EC2E4E0E8C00B824D5 /* NetworkStatistics.framework */,
+				6BE205E72E4E0B3100B824D5 /* NetworkExtension.framework */,
+				6BDE04D02E4B76DA004E1B71 /* libEndpointSecurity.tbd */,
+				6BDE04CE2E4B76D2004E1B71 /* libbsm.tbd */,
+				6BDE04CC2E4B76CB004E1B71 /* Security.framework */,
+				6BDE04CA2E4B76C1004E1B71 /* IOKit.framework */,
+				6BC9D8E42E7722F0006CF287 /* librule_engine_lib.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6B5D10342E8576F10032B220 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6B5D10382E8576F10032B220 /* EDRFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B5D10432E8576F10032B220 /* Build configuration list for PBXNativeTarget "EDRFramework" */;
+			buildPhases = (
+				6B5D10342E8576F10032B220 /* Headers */,
+				6B5D10352E8576F10032B220 /* Sources */,
+				6B5D10362E8576F10032B220 /* Frameworks */,
+				6B5D10372E8576F10032B220 /* Resources */,
+				6B5D13D12E8577E00032B220 /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6B5D103A2E8576F10032B220 /* EDRFramework */,
+			);
+			name = EDRFramework;
+			packageProductDependencies = (
+			);
+			productName = EDRFramework;
+			productReference = 6B5D10392E8576F10032B220 /* EDRFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6BDE04582E4B74B8004E1B71 /* EDR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BDE046C2E4B74BA004E1B71 /* Build configuration list for PBXNativeTarget "EDR" */;
+			buildPhases = (
+				6BDE04552E4B74B8004E1B71 /* Sources */,
+				6BDE04562E4B74B8004E1B71 /* Frameworks */,
+				6BDE04572E4B74B8004E1B71 /* Resources */,
+				6BE206772E57157400B824D5 /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B5D103E2E8576F10032B220 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6BDE045B2E4B74B8004E1B71 /* EDR */,
+			);
+			name = EDR;
+			productName = EDR;
+			productReference = 6BDE04592E4B74B8004E1B71 /* EDR.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6BDE04512E4B74B8004E1B71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					6B5D10382E8576F10032B220 = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					6BDE04582E4B74B8004E1B71 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+				};
+			};
+			buildConfigurationList = 6BDE04542E4B74B8004E1B71 /* Build configuration list for PBXProject "EDR" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6BDE04502E4B74B8004E1B71;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6BDE045A2E4B74B8004E1B71 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6B372F5C2E7C24920047CC23 /* Products */;
+					ProjectRef = 6B372A3C2E7C24920047CC23 /* ProtocolBuffers_iOS.xcodeproj */;
+				},
+				{
+					ProductGroup = 6B37D42A2E7C58CA0047CC23 /* Products */;
+					ProjectRef = 6B37D4252E7C58CA0047CC23 /* ProtocolBuffers_iOS.xcodeproj */;
+				},
+				{
+					ProductGroup = 6B372F5A2E7C24920047CC23 /* Products */;
+					ProjectRef = 6B372A3D2E7C24920047CC23 /* ProtocolBuffers_OSX.xcodeproj */;
+				},
+				{
+					ProductGroup = 6B37D42C2E7C58CA0047CC23 /* Products */;
+					ProjectRef = 6B37D4262E7C58CA0047CC23 /* ProtocolBuffers_OSX.xcodeproj */;
+				},
+				{
+					ProductGroup = 6B372F582E7C24920047CC23 /* Products */;
+					ProjectRef = 6B372A3E2E7C24920047CC23 /* ProtocolBuffers_tvOS.xcodeproj */;
+				},
+				{
+					ProductGroup = 6B37D42E2E7C58CA0047CC23 /* Products */;
+					ProjectRef = 6B37D4272E7C58CA0047CC23 /* ProtocolBuffers_tvOS.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6BDE04582E4B74B8004E1B71 /* EDR */,
+				6B5D10382E8576F10032B220 /* EDRFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B5D10372E8576F10032B220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BDE04572E4B74B8004E1B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B5D10352E8576F10032B220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BDE04552E4B74B8004E1B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6B5D103E2E8576F10032B220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B5D10382E8576F10032B220 /* EDRFramework */;
+			targetProxy = 6B5D103D2E8576F10032B220 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6B5D10412E8576F10032B220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 585Z2747F9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EDRFramework/lib",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EDRFramework/3rd/protobuf_final/include",
+					"$(PROJECT_DIR)/EDRFramework/3rd/include",
+					"$(PROJECT_DIR)/EDRFramework/3rd/include",
+				);
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EDRFramework/3rd/protobuf_final/lib/**",
+					"$(PROJECT_DIR)/EDRFramework/3rd/**",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_LDFLAGS = "-lprotobuf";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eagleyun.edr.EDRFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6B5D10422E8576F10032B220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 585Z2747F9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EDRFramework/lib",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EDRFramework/3rd/protobuf_final/include",
+					"$(PROJECT_DIR)/EDRFramework/3rd/include",
+					"$(PROJECT_DIR)/EDRFramework/3rd/include",
+				);
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EDRFramework/3rd/protobuf_final/lib/**",
+					"$(PROJECT_DIR)/EDRFramework/3rd/**",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_LDFLAGS = "-lprotobuf";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eagleyun.edr.EDRFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6BDE046A2E4B74BA004E1B71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 585Z2747F9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6BDE046B2E4B74BA004E1B71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 585Z2747F9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6BDE046D2E4B74BA004E1B71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EDR/EDR.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 585Z2747F9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EDR/lib",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eagleyun.sase.servicemanager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "servicemanager-profile";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+			};
+			name = Debug;
+		};
+		6BDE046E2E4B74BA004E1B71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EDR/EDR.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 585Z2747F9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EDR/lib",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eagleyun.sase.servicemanager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "servicemanager-profile";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B5D10432E8576F10032B220 /* Build configuration list for PBXNativeTarget "EDRFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B5D10412E8576F10032B220 /* Debug */,
+				6B5D10422E8576F10032B220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BDE04542E4B74B8004E1B71 /* Build configuration list for PBXProject "EDR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BDE046A2E4B74BA004E1B71 /* Debug */,
+				6BDE046B2E4B74BA004E1B71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BDE046C2E4B74BA004E1B71 /* Build configuration list for PBXNativeTarget "EDR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BDE046D2E4B74BA004E1B71 /* Debug */,
+				6BDE046E2E4B74BA004E1B71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6BDE04512E4B74B8004E1B71 /* Project object */;
+}
