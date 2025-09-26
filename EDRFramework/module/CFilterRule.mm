@@ -2,7 +2,6 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <chrono>
 #include <Foundation/Foundation.h>
 
 #include "CFilterRule.h"
@@ -78,85 +77,41 @@ CFilterRule *CFilterRule::shared()
 bool CFilterRule::Initialize()
 {
     std::string configPath = SystemUtils::GetConfigFilePath("filterjson.cfg");
-    if (!configPath.empty()) {
+    if (!configPath.empty())
+    {
         loadConfigFile(configPath);
-    } else {
+    }
+    else
+    {
         LOG_ERROR("Failed to locate filterjson.cfg config file");
     }
+    
     static std::once_flag libFlag;
     std::call_once(libFlag,
                    []()
                    {
-                        auto start = std::chrono::high_resolution_clock::now();
-                        LOG_INFO("Starting rule engine initialization...");
+                   
+        // 获取当前framework的路径
+        Dl_info info;
+        dladdr((void*)&CFilterRule::shared, &info);
+        NSString *currentPath = [NSString stringWithUTF8String:info.dli_fname];
+        NSString *frameworkPath = [currentPath stringByDeletingLastPathComponent];
+        NSString *libPath = [frameworkPath stringByAppendingPathComponent:@"/Frameworks/librule_engine_lib.dylib"];
 
-                        // 直接通过 NSBundle 获取 EDRFramework 的路径
-                        NSBundle *frameworkBundle = [NSBundle bundleWithIdentifier:@"com.yourcompany.EDRFramework"];
-                        if (!frameworkBundle) {
-                            // 如果通过 identifier 找不到，尝试通过路径查找
-                            NSString *mainBundlePath = [[NSBundle mainBundle] bundlePath];
-                            NSString *frameworksPath = [mainBundlePath stringByAppendingPathComponent:@"Contents/Frameworks"];
-                            NSString *edrFrameworkPath = [frameworksPath stringByAppendingPathComponent:@"EDRFramework"];
-                            frameworkBundle = [NSBundle bundleWithPath:edrFrameworkPath];
-                        }
-
-                        if (frameworkBundle) {
-                            NSString *libPath = [frameworkBundle pathForResource:@"librule_engine_lib" ofType:@"dylib" inDirectory:@"Frameworks"];
-                            if (!libPath) {
-                                // 如果通过资源方式找不到，直接构建路径
-                                NSString *frameworksPath = [frameworkBundle.bundlePath stringByAppendingPathComponent:@"Frameworks"];
-                                libPath = [frameworksPath stringByAppendingPathComponent:@"librule_engine_lib.dylib"];
-                            }
-
-                            LOG_INFO("EDRFramework bundle path: {}", frameworkBundle.bundlePath.UTF8String);
-                            LOG_INFO("Target library path: {}", libPath.UTF8String);
-
-                            // 检查文件是否存在
-                            if (![[NSFileManager defaultManager] fileExistsAtPath:libPath]) {
-                                LOG_ERROR("Rule engine library file does not exist: {}", libPath.UTF8String);
-                                return;
-                            }
-
-                            LOG_INFO("Loading rule engine library: {}", libPath.UTF8String);
-                            m_libHandle = dlopen(libPath.UTF8String, RTLD_LAZY);
-                        } else {
-                            LOG_ERROR("Could not find EDRFramework bundle");
-                            return;
-                        }
-//                       m_libHandle = dlopen("/Users/jt/Desktop/EDR/EDR/3rd/librule_engine_lib.dylib", RTLD_LAZY);
+                       m_libHandle = dlopen(libPath.UTF8String, RTLD_LAZY);
                        if ( !m_libHandle )
                        {
-                           LOG_ERROR("Failed to load rule engine library: {}", dlerror());
+                           LOG_ERROR("[CFilterRule] dlopen error: {}", dlerror());
                            return;
                        }
-
-                       LOG_INFO("Rule engine library loaded successfully");
                        m_initengine_macos = (init_fn)dlsym(m_libHandle, "initengine_macos");
                        m_onfilecreate     = (onfilecreate_fn)dlsym(m_libHandle, "onfilecreate");
                        m_onfilerename     = (onfilerename_fn)dlsym(m_libHandle, "onfilerename");
                        m_onprocstart      = (onprocstart_fn)dlsym(m_libHandle, "onprocstart");
                        m_freeresult       = (freeresult_fn)dlsym(m_libHandle, "freeresult");
-
-                       // 详细的符号解析错误检查
-                       if (!m_initengine_macos) {
-                           LOG_ERROR("Failed to resolve symbol 'initengine_macos': {}", dlerror() ? dlerror() : "Unknown error");
-                       }
-                       if (!m_onfilecreate) {
-                           LOG_ERROR("Failed to resolve symbol 'onfilecreate': {}", dlerror() ? dlerror() : "Unknown error");
-                       }
-                       if (!m_onfilerename) {
-                           LOG_ERROR("Failed to resolve symbol 'onfilerename': {}", dlerror() ? dlerror() : "Unknown error");
-                       }
-                       if (!m_onprocstart) {
-                           LOG_ERROR("Failed to resolve symbol 'onprocstart': {}", dlerror() ? dlerror() : "Unknown error");
-                       }
-                       if (!m_freeresult) {
-                           LOG_WARN("Failed to resolve symbol 'freeresult': {}", dlerror() ? dlerror() : "Unknown error");
-                       }
-
                        if ( !m_initengine_macos || !m_onfilecreate || !m_onfilerename || !m_onprocstart )
                        {
-                           LOG_ERROR("Critical symbols missing in rule engine library, cannot proceed");
+                           LOG_ERROR("[CFilterRule] dlsym error: {}", dlerror());
                            dlclose(m_libHandle);
                            m_libHandle = nullptr;
                            // 重置函数指针
@@ -168,22 +123,15 @@ bool CFilterRule::Initialize()
                            return;
                        }
                        // 初始化引擎
-                       auto config_start = std::chrono::high_resolution_clock::now();
-                       LOG_INFO("Decrypting config file: {}", [kYunshuConfigUserInfoPath UTF8String]);
-
                        NSString     *json     = CODEUtils::DecryptConfig(kYunshuConfigUserInfoPath);
                        NSData       *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
                        NSError      *err      = nil;
                        NSDictionary *userInfo = [NSJSONSerialization JSONObjectWithData:jsonData
                                                                                 options:NSJSONReadingMutableContainers
                                                                                   error:&err];
-
-                       auto config_end = std::chrono::high_resolution_clock::now();
-                       auto config_duration = std::chrono::duration_cast<std::chrono::milliseconds>(config_end - config_start);
-                       LOG_INFO("Config decryption completed in {}ms", config_duration.count());
                        if ( err )
                        {
-                           LOG_ERROR("Config JSON parse failed: {}, config_path={}", [[err description] UTF8String], [kYunshuConfigUserInfoPath UTF8String]);
+                           NSLog(@"[CFilterRule] JSON parse error: %@", err);
                            userInfo = @ {};
                        }
                        NSString   *token       = [userInfo objectForKey:@"token"];
@@ -191,12 +139,12 @@ bool CFilterRule::Initialize()
 
                        // 检查关键参数是否有效，避免崩溃
                        if (!token || ![token isKindOfClass:[NSString class]] || token.length == 0) {
-                           LOG_ERROR("Engine initialization failed: token is invalid or empty, config_path={}", [kYunshuConfigUserInfoPath UTF8String]);
+                           LOG_ERROR("[CFilterRule] Error: token is invalid or empty, cannot initialize engine");
                            return;
                        }
 
                        if (!server_host || ![server_host isKindOfClass:[NSString class]] || server_host.length == 0) {
-                           LOG_ERROR("Engine initialization failed: server_host is invalid or empty, config_path={}", [kYunshuConfigUserInfoPath UTF8String]);
+                           LOG_ERROR("[CFilterRule] Error: server_host is invalid or empty, cannot initialize engine");
                            return;
                        }
 
@@ -205,31 +153,20 @@ bool CFilterRule::Initialize()
 
                        // 再次检查转换后的 C 字符串
                        if (!pToken || !pServerHost) {
-                           LOG_ERROR("Engine initialization failed: unable to convert config strings to UTF8");
+                           LOG_ERROR("[CFilterRule] Error: Failed to convert NSString to UTF8String");
                            return;
                        }
 
-                       auto engine_start = std::chrono::high_resolution_clock::now();
-                       LOG_INFO("Initializing rule engine with server: {}", pServerHost);
-
                        bool        bInit       = m_initengine_macos ? m_initengine_macos(pToken, pServerHost) : false;
-
-                       auto engine_end = std::chrono::high_resolution_clock::now();
-                       auto engine_duration = std::chrono::duration_cast<std::chrono::milliseconds>(engine_end - engine_start);
-
                        if ( bInit )
                        {
-                           LOG_INFO("Rule engine initialized successfully in {}ms, token_len={}, server_host={}", engine_duration.count(), strlen(pToken), pServerHost);
+                           LOG_INFO("[CFilterRule] init_engine success");
                            m_libInited = true;
                        }
                        else
                        {
-                           LOG_ERROR("Rule engine initialization failed in {}ms, token_len={}, server_host={}", engine_duration.count(), strlen(pToken), pServerHost);
+                           LOG_ERROR("[CFilterRule] init_engine failed");
                        }
-
-                       auto total_end = std::chrono::high_resolution_clock::now();
-                       auto total_duration = std::chrono::duration_cast<std::chrono::milliseconds>(total_end - start);
-                       LOG_INFO("Rule engine setup completed in {}ms total", total_duration.count());
                    });
     return true;
 }
@@ -253,7 +190,7 @@ bool CFilterRule::loadConfigFile(const std::string &configPath)
     std::ifstream file(configPath);
     if ( !file.is_open() )
     {
-        LOG_ERROR("Cannot open config file: {}", configPath);
+        std::cerr << "无法打开配置文件: " << configPath << std::endl;
         return false;
     }
 
@@ -264,7 +201,7 @@ bool CFilterRule::loadConfigFile(const std::string &configPath)
     cJSON *root = cJSON_Parse(buffer.str().c_str());
     if ( !root )
     {
-        LOG_ERROR("JSON parsing failed: {}, config_path={}", cJSON_GetErrorPtr(), configPath);
+        std::cerr << "JSON解析失败: " << cJSON_GetErrorPtr() << std::endl;
         return false;
     }
 
@@ -275,7 +212,7 @@ bool CFilterRule::loadConfigFile(const std::string &configPath)
     {
         m_configPath   = configPath;
         m_configLoaded = true;
-        LOG_INFO("Config file loaded successfully: {}", configPath);
+        std::cout << "配置文件加载成功: " << configPath << std::endl;
     }
     return success;
 }
@@ -446,7 +383,7 @@ void CFilterRule::initRuleOnce() const
     std::call_once(m_initFlag,
                    [this]()
                    {
-                       LOG_DEBUG("Initializing rule mapping once");
+                       std::cout << "initRuleOnce" << std::endl;
                        if ( !m_configLoaded && !m_configPath.empty() )
                        {
                            const_cast<CFilterRule *>(this)->loadConfigFile(m_configPath);
@@ -456,7 +393,7 @@ void CFilterRule::initRuleOnce() const
                        m_ruleMap[std::type_index(typeid(FileFilterRule))]    = &m_rule.fileFilters;
                        // ruleMap[std::type_index(typeid(NetFilterRule))]     = &rule.netFilters;
 
-                       LOG_INFO("Rule mapping initialization completed");
+                       std::cout << "规则映射初始化完成" << std::endl;
                    });
 }
 
@@ -465,29 +402,11 @@ bool CFilterRule::IsConfigLoaded() const
     return m_configLoaded;
 }
 
-bool CFilterRule::IsLibraryLoaded() const
-{
-    return m_libHandle && m_libInited &&
-           m_initengine_macos && m_onfilecreate &&
-           m_onfilerename && m_onprocstart;
-}
-
 ActionStatus CFilterRule::FileRenameFilterAllow(FILE_RENAME_INFO *pEventInfo, THREAT_PROC_INFO *pProcInfo,
                                                 std::string *outThreatInfo) const
 {
     ActionStatus          retStatus = RULE_ACTION_PASS;
     const BehaviorResult *pResult   = nullptr;
-
-    if (!IsLibraryLoaded()) {
-        LOG_ERROR("Rule engine library is not properly loaded - cannot process file rename events");
-        return RULE_ACTION_PASS;
-    }
-
-    if (!pEventInfo || !pProcInfo) {
-        LOG_ERROR("Invalid parameters: pEventInfo={}, pProcInfo={}", (void*)pEventInfo, (void*)pProcInfo);
-        return RULE_ACTION_PASS;
-    }
-
     m_onfilerename("", pProcInfo, pEventInfo, &pResult);
     if ( pResult )
     {
@@ -503,7 +422,7 @@ ActionStatus CFilterRule::FileRenameFilterAllow(FILE_RENAME_INFO *pEventInfo, TH
     }
     else
     {
-        LOG_WARN("Filter result is null, cannot process file rename event");
+        std::cout << "pResult nullptr" << std::endl;
     }
     // 实际匹配规则逻辑可按需实现
     return retStatus;
@@ -514,17 +433,6 @@ ActionStatus CFilterRule::FileCreateFilterAllow(FILE_CREATE_INFO *pEventInfo, TH
 {
     ActionStatus          retStatus = RULE_ACTION_PASS;
     const BehaviorResult *pResult   = nullptr;
-
-    if (!IsLibraryLoaded()) {
-        LOG_ERROR("Rule engine library is not properly loaded - cannot process file create events");
-        return RULE_ACTION_PASS;
-    }
-
-    if (!pEventInfo || !pProcInfo) {
-        LOG_ERROR("Invalid parameters: pEventInfo={}, pProcInfo={}", (void*)pEventInfo, (void*)pProcInfo);
-        return RULE_ACTION_PASS;
-    }
-
     m_onfilecreate("", pProcInfo, pEventInfo, &pResult);
     if ( pResult )
     {
@@ -540,7 +448,7 @@ ActionStatus CFilterRule::FileCreateFilterAllow(FILE_CREATE_INFO *pEventInfo, TH
     }
     else
     {
-        LOG_WARN("Filter result is null, cannot process file create event");
+        std::cout << "pResult nullptr" << std::endl;
     }
     // 实际匹配规则逻辑可按需实现
     return retStatus;
@@ -549,20 +457,9 @@ ActionStatus CFilterRule::FileCreateFilterAllow(FILE_CREATE_INFO *pEventInfo, TH
 ActionStatus CFilterRule::ProcessFilterAllow(THREAT_PROC_INFO *pEventInfo, THREAT_PROC_INFO *pParentInfo,
                                              std::string *outThreatInfo) const
 {
-    //    LOG_DEBUG("ProcessFilterAllow");
+    //    std::cout << "ProcessFilterAllow" << std::endl;
     ActionStatus          retStatus = RULE_ACTION_PASS;
     const BehaviorResult *pResult   = nullptr;
-
-    if (!IsLibraryLoaded()) {
-        LOG_ERROR("Rule engine library is not properly loaded - cannot process process start events");
-        return RULE_ACTION_PASS;
-    }
-
-    if (!pEventInfo) {
-        LOG_ERROR("Invalid parameter: pEventInfo is null");
-        return RULE_ACTION_PASS;
-    }
-
     m_onprocstart("", pParentInfo, pEventInfo, &pResult);
     if ( pResult )
     {
@@ -579,8 +476,8 @@ ActionStatus CFilterRule::ProcessFilterAllow(THREAT_PROC_INFO *pEventInfo, THREA
     }
     else
     {
-        LOG_WARN("Filter result is null, cannot process process start event");
+        std::cout << "pResult nullptr" << std::endl;
     }
-    //    LOG_DEBUG("ProcessFilterAllow end");
+    //    std::cout << "ProcessFilterAllow end" << std::endl;
     return retStatus;
 }
